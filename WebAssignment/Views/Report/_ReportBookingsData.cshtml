@@ -1,0 +1,44 @@
+﻿@{
+}
+
+<div>
+    <table class="report-table">
+        <tr>
+            <th>Total Completed</th>
+            <th>Total Pending</th>
+            <th>Total Cancelled</th>
+            <th>Total Appointments</th>
+        </tr>
+        <tr>
+            <td>@Model.TotalCompleted</td>
+            <td>@Model.TotalPending</td>
+            <td>@Model.TotalCancelled</td>
+            <td>@Model.TotalAppointment</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <table class="report-table">
+        <tr>
+            <th>Appointment Id</th>
+            <th>Pet Name</th>
+            <th>Owner Name</th>
+            <th>Appointment Date</th>
+            <th>Appointment Time</th>
+            <th>Status</th>
+        </tr>
+
+        @foreach (ReportBookingDetail rbd in Model.ReportBookingDetails)
+        {
+            <tr>
+                <td>@rbd.Id</td>
+                <td>@rbd.PetName</td>
+                <td>@rbd.OwnerName</td>
+                <td>@rbd.Date</td>
+                <td>@rbd.Time</td>
+                <td>@rbd.Status</td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿@model PetVM
+
+@{
+    ViewBag.Title = "Editing: " + Model.PetName; 
+}
+
+<div class="container">
+    <div class="container-inner">
+        <div class="form-title">Editting: @Model.PetName</div>
+        <form method="post" class="form" enctype="multipart/form-data">
+            <label asp-for="PetName"></label>
+            <input asp-for="PetName">
+            <span asp-validation-for="PetName"></span>
+
+            <label asp-for="Breed"></label>
+            <input asp-for="Breed">
+            <span asp-validation-for="Breed"></span>
+
+            <label asp-for="Age"></label>
+            <input asp-for="Age">
+            <span asp-validation-for="Age"></span>
+
+            <label asp-for="Gender"></label>
+            <select asp-for="Gender">
+                <option value="">--Select One--</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+            <span asp-validation-for="Gender"></span>
+
+            <label asp-for="Weight"></label>
+            <input asp-for="Weight">
+            <span asp-validation-for="Weight"></span>
+
+            <label asp-for="Photo"></label>
+            <label class="upload">
+                <input asp-for="Photo" accept="image/jpeg, image/png" hidden>
+                <img src="/images/@(string.IsNullOrEmpty(Model.PhotoURL) ? "photo.jpg" : Model.PhotoURL)">
+            </label>
+            <span asp-validation-for="Photo"></span>
+
+            <label asp-for="Notes"></label>
+            <textarea asp-for="Notes" class="note-box" rows="5" cols="27"></textarea>
+            <span asp-validation-for="Notes"></span>
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <section>
+                <button>confirm</button>
+            </section>
+        </form>
+    </div>
+</div>

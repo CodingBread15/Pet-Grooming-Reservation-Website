@@ -1,0 +1,73 @@
+﻿@model List<Appointment>
+
+@{
+    ViewBag.Title = $"Calendar {DateTime.Today.Year}";
+}
+
+<div class="noncentered-container">
+    <h2>Calendar 2026</h2>
+
+    <div class="filter-container">
+        <a href="/Appointment/Admin">Member List</a>
+
+        |  
+
+        <a href="/Appointment/Calendar">Calendar</a>
+    </div>
+
+    <div style="height: 600px; overflow-y: scroll;">
+
+        @for (int month = 1; month <= 12; month++)
+        {
+            string monthName = new DateTime(2026, month, 1).ToString("MMMM");
+
+            <h3>@monthName</h3>
+
+            <table style="width:100%; border-collapse:collapse;">
+
+                <tr>
+                    <th style="border:1px solid black; padding:8px;">Date</th>
+                    <th style="border:1px solid black; padding:8px;">Member</th>
+                    <th style="border:1px solid black; padding:8px;">Service</th>
+                    <th style="border:1px solid black; padding:8px;">Time</th>
+                    <th style="border:1px solid black; padding:8px;">Status</th>
+                </tr>
+
+                @foreach (var appointment in Model
+                    .Where(a => a.AppointmentDate.Year == 2026 &&
+                                a.AppointmentDate.Month == month)
+                    .OrderBy(a => a.AppointmentDate)
+                    .ThenBy(a => a.AppointmentTime))
+                {
+                    <tr>
+                        <td style="border:1px solid black; padding:8px;">
+                            @appointment.AppointmentDate
+                        </td>
+
+                        <td style="border:1px solid black; padding:8px;">
+                            @appointment.Pet.User.Name
+                        </td>
+
+                        <td style="border:1px solid black; padding:8px;">
+                            @appointment.Service.Name
+                        </td>
+
+                        <td style="border:1px solid black; padding:8px;">
+                            @appointment.AppointmentTime
+                        </td>
+
+                        <td style="border:1px solid black; padding:8px;">
+                            @appointment.Status
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            <br />
+        }
+        ```
+
+    </div>
+
+</div>

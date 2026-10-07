@@ -1,0 +1,42 @@
+﻿@{
+}
+
+<table class="index-table">
+    <tr>
+        <th class="index-id">Id</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th class="member-index-th">Email</th>
+        <th class="member-index-th">Phone</th>
+    </tr>
+    @foreach (User u in Model)
+    {
+        <tr>
+            <td class="index-id">@u.Id</td>
+            <td>
+                @if (string.IsNullOrEmpty(u.Photo))
+                {
+                    <img src="/images/photo.jpg" />
+                }
+                else
+                {
+                    <img src="/images/@u.Photo" />
+                }
+            </td>
+            <td>@u.Name</td>
+            <td class="member-index-td">@u.Email</td>
+            <td class="member-index-td">
+                @(string.IsNullOrEmpty(u.Phone) ? "No data" : u.Phone)
+            </td>
+            <td class="index-button">
+                <section>
+                    <button data-post="/User/Delete?id=@u.Id" class="red-button">Delete</button>
+                    @if (u.LockoutEnd.HasValue)
+                    {
+                        <button data-post="/User/UnblockLogin?id=@u.Id" class="red-button">Unblock</button>
+                    }
+                </section>
+            </td>
+        </tr>
+    }
+</table>

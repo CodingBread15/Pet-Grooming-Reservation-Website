@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/css/app.css" asp-append-version="true"/>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    @RenderSection("head", false)
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-left"></div>
+            <div class="logo"><a href="/">Clean Paws</a></div>
+            <nav class="nav-right">
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="/User/MemberIndex">Members List</a>
+                    <a href="/Appointment/Admin">Bookings List</a>
+                    <a href="/Service/Index">Pet Services</a>
+                    <a href="/Dashboard/Index">Dashboard</a>
+                    <a href="/Report/Index">Report</a>
+                }
+
+                @if (User.IsInRole("Member"))
+                {
+                    <a href="/Appointment/Index">My Appointments</a>
+                    <a href="/Pet/Index">My Pets</a>
+                }
+                <a href="/User/Profile" id="most-right">
+                    <img src="~/images/accountcircle.svg">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div>
+            <span>Developed by <b>Humans</b></span>
+            <span>Copyrighted &copy; @DateTime.Today.Year</span>
+        </div>
+    </footer>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/js/app.js" asp-append-version="true"></script>
+    @RenderSection("foot", false)
+</body>
+</html>

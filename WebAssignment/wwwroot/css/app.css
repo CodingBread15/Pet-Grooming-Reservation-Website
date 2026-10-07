@@ -1,0 +1,471 @@
+﻿body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0px;
+    font-family:"Chewy";
+    font-weight:lighter;
+    font-size:20px;
+    color:orange;
+}
+
+a {
+    text-decoration:none;
+    color:orange
+}
+
+p {
+    margin: 0px;
+}
+
+input {
+
+}
+
+
+
+
+/*_____________HEADER_____________*/
+.navbar {
+    display: flex;
+    padding: 20px;
+    background-color: #FFF1C4;
+}
+
+.nav-left, .nav-right {  /*Used to have .logo*/
+    display: flex;
+    flex: 1;
+    justify-content: center;      /*logo should be center, nav-right should be flex-end, nav-left should be flex-start*/
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+.nav-right #most-right {
+    display:flex;
+    padding-right: 10px;
+}
+
+.nav-right #most-right img {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+
+/*_____________MAIN_____________*/
+main {
+    flex: 1;
+    display: flex;
+    padding: 20px;
+    background-image: url("/images/PetPatternedBackground.png");
+    /*    font-family: Times New Roman;*/
+}
+
+button {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+    min-width: 70px;
+    cursor: pointer;
+}
+
+.red-button{
+    background-color: red;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.noncentered-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 100px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 50px rgb(218, 218, 218);
+}
+
+.filter-container {
+    display:flex;
+    gap:10px;
+    padding: 30px 0px;
+}
+
+.header-title {
+    margin: 0px;
+    font-size: 30px;
+}
+
+.header-title-with-padding {
+    margin: 0px;
+    font-size: 30px;
+    padding: 0px 0px 30px 0px;
+}
+
+/*home*/
+.home-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align:center;
+    gap: 20px
+}
+
+.home-container-outside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.home-section{
+    padding:50px 0px;
+}
+
+.home-section-title {
+    font-size: 40px;
+    padding: 0px 0px 20px 0px
+}
+
+.home-section-text {
+    font-size: 20px;
+    width:550px;
+}
+
+.home-section-text p{
+    padding: 5px 0px 0px 0px;
+}
+
+.home-link {
+    display:inline-block;
+    padding:10px;
+    border-radius:15px;
+    background-color:orange;
+    color:white;
+}
+
+/*forms*/
+.form-title {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px 0px 20px 0px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+    place-content: start;
+    place-items: start;
+}
+
+.form-button-right{
+    justify-self: end;
+}
+
+.form div, .form span{
+    grid-column: span 2;
+    font-size: 15px;
+    color: rgb(255, 80, 80)
+}
+
+.note-box{
+    resize: none;
+}
+
+/*table*/
+.detail {
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.detail th, .detail td {
+    padding: 10px
+}
+
+.detail th {
+    vertical-align: top;
+}
+
+.detail button {
+
+}
+
+/*user*/
+.update-profile-button{
+    display:flex;
+    justify-content:space-between;
+}
+
+/*pets*/
+.pet-list {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.pet-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 50px rgb(218, 218, 218);
+}
+
+.pet-container-name {
+    align-self:center;
+    padding:10px
+}
+
+.pet-container-button {
+    display: flex;
+    gap:10px;
+    justify-content: space-evenly;
+}
+
+.pet-container-button button {
+    flex:1;
+}
+
+.pet-insert {
+    padding:0px 0px 50px 0px;
+}
+
+.detail .pet-detail-photo{
+    display: flex;
+    justify-content: center;
+}
+
+.pet-detail-note{
+    max-width:200px;
+}
+
+/*indexes*/
+.index-container {
+    padding: 30px 0px;
+}
+
+.index-table {
+    background-color: white;
+    border-collapse: collapse;
+}
+
+.index-table tr{
+}
+
+.index-table th, .index-table td{
+    text-align:left;
+    padding:5px 15px;
+    min-width:100px;
+}
+
+.index-table th{
+    background-color:orange;
+    color:white;
+}
+
+.index-table td{
+    border-bottom: 1px solid black;
+}
+
+.index-table .index-id{
+    min-width:50px;
+}
+
+.index-table .index-button{
+    text-align:center;
+    border: none;
+}
+
+.index-table img{
+    display: block;
+    border: 1px solid black;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+/*grooming services - extenstion of index table*/
+.index-table .grooming-service-description-th{
+    width:550px;
+}
+
+.index-table .grooming-service-description-td{
+    height:50px;
+    width:550px;
+}
+
+/*member index - extenstion of index table*/
+.index-table .member-index-th{
+    width:250px;
+}
+
+.index-table .member-index-td{
+    width:250px;
+}
+
+
+/*dasboard*/
+.dashboard-grid {
+    flex: 1;
+    display: grid;
+    padding: 30px 0px;
+    grid-template-columns: repeat(3, auto);
+    gap: 50px;
+}
+
+.dashboard-container-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 1px 5px rgb(218, 218, 218);
+}
+
+.dashboard-header {
+    padding: 0px 0px 15px 0px;
+}
+
+.dashboard-data {
+    color: #E69100;
+    font-size:30px
+}
+
+/*report*/
+.report-container-index {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 0px;
+}
+
+.report-container-index-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 1px 5px rgb(218, 218, 218);
+}
+
+.report-container {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px
+}
+
+.report-table {
+    background-color: white;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.report-table-title {
+    border-bottom: 1px solid black;
+}
+
+.report-table th, .report-table td {
+    border-right: 1px solid black;
+    text-align: center;
+    padding: 5px 15px;
+}
+
+.report-table th {
+    background-color:orange;
+    color:white;
+}
+
+.report-table td {
+    border-bottom: 1px solid black;
+}
+
+
+
+
+
+/*_____________FOOTER_____________*/
+footer {
+    display: flex;
+}
+
+footer div {
+    flex: 1;
+    padding: 15px 20px;
+    background-color: #FFF1C4;
+}
+
+
+
+
+/*_____________OTHERS_____________*/
+.validation-summary-errors {
+    margin: 0;
+    padding: 0;
+}
+
+.validation-summary-errors ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.upload img {
+    display: block;
+    border: 1px solid #333;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.upload.dragover img {
+    opacity: 0.5;
+}
+
+.sort-link {
+    color: white;
+    text-decoration: none;
+}
+
+.sort-link:hover {
+    color: white;
+    text-decoration: none;
+}

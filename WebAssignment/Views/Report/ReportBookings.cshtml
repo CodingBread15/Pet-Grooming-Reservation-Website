@@ -1,0 +1,50 @@
+﻿@model ReportBookingsVM
+
+@{
+    ViewBag.Title = "Booking Report";
+}
+<div class="container">
+    <h1 class="header-title">Booking report</h1>
+    <h2 class="header-title">(Sorted by Appointment Date)</h2>
+
+    <div>
+        <form class="filter-container" data-ajax="true" data-ajax-update="#target">
+            <label for="date">Select date:</label>
+            <input type="date" name="date" id="date">
+            <button>Filter</button>
+        </form>
+    </div>
+
+    <div id="target" class="report-container">
+        <partial name="_ReportBookingsData">
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <div>
+    <form data-ajax="true"
+          data-ajax-update="#target">
+        <input type="search" autofocus data-trim>
+        <button>Search</button>
+    </form>
+</div> *@

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Appointment>
+
+@{
+    ViewBag.Title = "My Appointments";
+}
+
+<div class="container">
+    <div class="container-inner">
+
+        <div class="form-title">
+            MY APPOINTMENTS
+        </div>
+
+        <div style="padding: 20px;">
+            <a asp-action="Create">
+                Book Appointment
+            </a>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <p>No appointments found.</p>
+        }
+        else
+        {
+            <table class="index-table">
+                <thead>
+                    <tr>
+                        <th>Pet Name</th>
+                        <th>Service</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Remarks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var appointment in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @appointment.Pet.PetName
+                            </td>
+
+                            <td>
+                                @appointment.Service.Name
+                            </td>
+
+                            <td>
+                                @appointment.AppointmentDate
+                            </td>
+
+                            <td>
+                                @appointment.AppointmentTime
+                            </td>
+
+                            <td>
+                                @appointment.Status
+                            </td>
+
+                            <td>
+                                @appointment.Remarks
+                            </td>
+
+                            <td>
+
+                                <a asp-action="Update"
+                                   asp-route-id="@appointment.Id">
+                                    Update
+                                </a>
+
+                                <form asp-action="Delete"
+                                      asp-route-id="@appointment.Id"
+                                      method="post"
+                                      style="display:inline;">
+
+                                    @Html.AntiForgeryToken()
+
+                                    <button type="submit">
+                                        Delete
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        }
+
+    </div>
+</div>

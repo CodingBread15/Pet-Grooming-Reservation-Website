@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Pet>
+
+@{
+    ViewBag.Title = "Your Pets";
+}
+
+<div class="container">
+
+    <div class="pet-insert">
+        <a href="/Pet/Insert">
+            <img src="~/images/addcircle.svg">
+        </a>
+    </div>
+
+    <div class="pet-list">
+        @foreach (Pet p in Model)
+        {
+            <div class="pet-container">
+                <img src="/images/@(string.IsNullOrEmpty(p.Photo) ? "photo.jpg" : p.Photo)">
+                <span class="pet-container-name">@p.PetName</span>
+                <section class="pet-container-button">
+                    <button data-get="/Pet/Detail?id=@p.Id">More</button>
+                    <button data-post="/Pet/Delete?id=@p.Id" class="red-button">Delete</button>
+                </section>
+            </div>
+        }
+    </div>
+
+</div>

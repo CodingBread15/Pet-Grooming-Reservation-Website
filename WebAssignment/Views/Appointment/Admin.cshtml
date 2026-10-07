@@ -1,0 +1,59 @@
+﻿@model List<Appointment>
+
+@{
+    ViewBag.Title = "Booking List";
+}
+<div class="noncentered-container">
+
+    <h2>Booking List</h2>
+
+    <div class="filter-container">
+        <a href="/Appointment/Admin">
+            Booking List
+        </a>
+
+        |
+
+        <a href="/Appointment/Calendar">
+            Calendar
+        </a>
+    </div>
+
+    <div style="height:500px; overflow-y:scroll;">
+        <div id="bookingTable">
+            @await Html.PartialAsync("_BookingTable", Model)
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var currentSort = "";
+    var descending = false;
+
+
+    function sortBookings(column) {
+        if (currentSort == column) {
+            descending = !descending;
+        }
+        else {
+            currentSort = column;
+            descending = false;
+        }
+
+
+        fetch('/Appointment/SortBookings?sort='
+            + column
+            + '&descending='
+            + descending)
+
+            .then(response => response.text())
+
+            .then(data => {
+
+                document.getElementById("bookingTable").innerHTML = data;
+
+            });
+    }
+
+</script>

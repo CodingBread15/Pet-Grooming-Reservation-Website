@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home";
+    DateTime datentime = DateTime.UtcNow;
+}
+
+<div class="home-container-outside">
+    <div class="noncentered-container">
+        <div class="home-container">
+            <img src="~/images/PetsGroupPhoto.png">
+
+            @if (!User.IsInRole("Admin"))
+            {
+                <a href="/Appointment/Create" class="home-link">Book Now</a>
+            }
+        </div>
+
+        <div class="home-container">
+            <div class="home-section">
+                <span class="home-section-title">Grooming Packages We Offer</span>
+                <div class ="home-section-text">
+                    <p>Express</p>
+                    <p>Quick shampoo wash and towel-dry</p>
+                    <p>Basic Groom</p>
+                    <p>Bath + blow-dry, nail trim, ear clean, paw-pad + bum fluff trim</p>
+                    <p>Full Groom</p>
+                    <p>Clipper cut PLUS bath + blow-dry, nail trim, ear clean, paw-pad + bum fluff trim</p>
+                </div>
+            </div>
+
+            <div class="home-section">
+                <span class="home-section-title">About Us</span>
+                <div class="home-section-text">
+                    <p>
+                        We provide gentle, professional grooming that keeps your pets clean, comfortable, and happy. With care and attention to every detail, we make every visit a positive experience for your furry friends.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model Pet
+
+@{
+    ViewBag.Title = "Your Pet";
+}
+
+<div class="container">
+    <div class="container-inner">
+        <div class="form-title">Your Pet</div>
+        <table class="detail">
+            <tr>
+                <td colspan="2">
+                    <div class="upload pet-detail-photo">
+                        @if (String.IsNullOrEmpty(Model.Photo))
+                        {
+                            <img src="/images/photo.jpg" />
+                        }
+                        else
+                        {
+                            <img src="/images/@Model.Photo" />
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Pet Id</th>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <th>Pet Name</th>
+                <td>@Model.PetName</td>
+            </tr>
+            <tr>
+                <th>Pet Breed</th>
+                <td>@(string.IsNullOrEmpty(Model.Breed) ? "No breed specified" : Model.Breed)</td>
+            </tr>
+            <tr>
+                <th>Pet Age</th>
+                <td>@Model.Age</td>
+            </tr>
+            <tr>
+                <th>Pet Gender</th>
+                <td>@(Model.Gender == "F" ? "Female" : "Male")</td>
+            </tr>
+            <tr>
+                <th>Pet Weight</th>
+                <td>@(Model.Weight)kg</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>
+                    <div class="pet-detail-note">
+                        @Model.Notes
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button data-get="/Pet/Update?id=@Model.Id">Edit</button>
+                    <button data-post="/Pet/Delete?id=@Model.Id" class="red-button">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

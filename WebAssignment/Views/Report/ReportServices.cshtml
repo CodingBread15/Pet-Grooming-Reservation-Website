@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Service>
+
+@{
+    ViewBag.Title = "Grooming Package Report";
+    int rank = 1;
+}
+
+<div class="container">
+    <h1 class="header-title-with-padding">Grooming Package Report</h1>
+
+    <div>
+        <table class="report-table">
+            <tr>
+                <th colspan="4" class="report-table-title">Top Packages</th>
+            </tr>
+
+            <tr>
+                <th>Rank</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+
+            @foreach (Service s in Model)
+            {
+                <tr>
+                    <td>@rank</td>
+                    <td>@s.Id</td>
+                    <td>@s.Name</td>
+                    <td>@s.Price</td>
+                </tr>
+
+                rank++;
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model AppointmentVM
+
+@{
+    ViewBag.Title = "Update Appointment";
+}
+
+<div class="container">
+    <div class="container-inner">
+        <div class="form-title">Update Appointment</div>
+
+        <form asp-action="Update" method="post" class="form">
+
+            <input asp-for="Id" type="hidden" />
+
+            <label asp-for="PetName">Pet Name</label>
+            <input asp-for="PetName">
+            <span asp-validation-for="PetName"></span>
+
+            <label asp-for="AppointmentDate">Date</label>
+            <input asp-for="AppointmentDate" type="date">
+            <span asp-validation-for="AppointmentDate"></span>
+
+            <label asp-for="AppointmentTime">Time</label>
+            <input asp-for="AppointmentTime" type="time">
+            <span asp-validation-for="AppointmentTime"></span>
+
+            <label asp-for="ServiceId">Service</label>
+            <select asp-for="ServiceId">
+                <option value="">-- Select Service --</option>
+                @foreach (var service in ViewBag.Services)
+                {
+                    <option value="@service.Id">
+                        @service.Name
+                    </option>
+                }
+            </select>
+            <span asp-validation-for="ServiceId"></span>
+
+            <label asp-for="Remarks">Remarks</label>
+            <textarea asp-for="Remarks"></textarea>
+            <span asp-validation-for="Remarks"></span>
+
+            <button type="submit">Update Appointment</button>
+
+            <a asp-action="Index">Cancel</a>
+        </form>
+    </div>
+</div>

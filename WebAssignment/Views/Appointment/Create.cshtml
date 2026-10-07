@@ -1,0 +1,112 @@
+﻿@model AppointmentVM
+
+@{
+    ViewBag.Title = "Book Appointment";
+}
+
+<div class="container">
+    <div class="container-inner">
+
+        <div class="form-title">
+            BOOK APPOINTMENT
+        </div>
+
+        <form asp-action="Create"
+              method="post"
+              class="form">
+
+            @Html.AntiForgeryToken()
+
+
+            <!-- PET NAME -->
+
+            <label asp-for="PetName">
+                Pet Name
+            </label>
+
+            <input asp-for="PetName"
+                   type="text"
+                   placeholder="Enter pet name" />
+
+            <span asp-validation-for="PetName"></span>
+
+
+            <!-- SERVICE -->
+
+            <label asp-for="ServiceId">
+                Grooming Service
+            </label>
+
+            <select asp-for="ServiceId">
+
+                <option value="">
+                    --Select Service--
+                </option>
+
+                @foreach (var service in ViewBag.Services)
+                {
+                    <option value="@service.Id">
+                        @service.Name
+                    </option>
+                }
+
+            </select>
+
+            <span asp-validation-for="ServiceId"></span>
+
+
+            <!-- DATE -->
+
+            <label asp-for="AppointmentDate"></label>
+
+            <input asp-for="AppointmentDate"
+                   type="date" />
+
+            <span asp-validation-for="AppointmentDate"></span>
+
+
+            <!-- TIME -->
+
+            <label asp-for="AppointmentTime"></label>
+
+            <input asp-for="AppointmentTime"
+                   type="time" />
+
+            <span asp-validation-for="AppointmentTime"></span>
+
+
+            <!-- REMARKS -->
+
+            <label asp-for="Remarks"></label>
+
+            <textarea asp-for="Remarks"
+                      class="note-box"
+                      rows="5"
+                      cols="27"></textarea>
+
+            <span asp-validation-for="Remarks"></span>
+
+
+            <!-- VALIDATION -->
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+
+            <!-- BUTTONS -->
+
+            <section>
+
+                <button type="submit">
+                    Confirm
+                </button>
+
+                <button type="reset">
+                    Reset
+                </button>
+
+            </section>
+
+        </form>
+
+    </div>
+</div>

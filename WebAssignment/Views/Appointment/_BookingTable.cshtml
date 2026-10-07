@@ -1,0 +1,134 @@
+﻿@model List<Appointment>
+
+<table class="index-table">
+    <tr>
+        <th>
+            <a href="#"
+               class="sort-link"
+               onclick="sortBookings('member'); return false;">
+                Member
+            </a>
+        </th>
+
+        <th>
+            <a href="#"
+               class="sort-link"
+               onclick="sortBookings('pet'); return false;">
+                Pet
+            </a>
+        </th>
+
+        <th>
+            <a href="#"
+               class="sort-link"
+               onclick="sortBookings('service'); return false;">
+                Service
+            </a>
+        </th>
+
+        <th>
+            <a href="#"
+               class="sort-link"
+               onclick="sortBookings('date'); return false;">
+                Date
+            </a>
+        </th>
+
+        <th>
+            <a href="#"
+               class="sort-link"
+               onclick="sortBookings('time'); return false;">
+                Time
+            </a>
+        </th>
+
+        <th>
+            Remarks
+        </th>
+
+        <th>
+            <a href="#"
+               class="sort-link"
+               onclick="sortBookings('status'); return false;">
+                Status
+            </a>
+        </th>
+    </tr>
+
+
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.Pet.User.Name</td>
+
+            <td>@appointment.Pet.PetName</td>
+
+            <td>@appointment.Service.Name</td>
+
+            <td>@appointment.AppointmentDate</td>
+
+            <td>@appointment.AppointmentTime</td>
+
+            <td>@appointment.Remarks</td>
+
+            <td>
+                <form method="post"
+                      action="/Appointment/UpdateStatus">
+
+                    @Html.AntiForgeryToken()
+
+                    <input type="hidden"
+                           name="id"
+                           value="@appointment.Id" />
+
+                    <select name="status"
+                            onchange="this.form.submit()">
+
+                        @if (appointment.Status == "Pending")
+                        {
+                            <option value="Pending" selected>
+                                Pending
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                            <option value="Cancelled">
+                                Cancelled
+                            </option>
+                        }
+                        else if (appointment.Status == "Completed")
+                        {
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Completed" selected>
+                                Completed
+                            </option>
+
+                            <option value="Cancelled">
+                                Cancelled
+                            </option>
+                        }
+                        else
+                        {
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                            <option value="Cancelled" selected>
+                                Cancelled
+                            </option>
+                        }
+                    </select>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

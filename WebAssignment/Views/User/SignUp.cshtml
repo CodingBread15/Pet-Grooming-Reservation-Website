@@ -1,0 +1,39 @@
+﻿@model UserVM
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<div class="container">
+    <div class="container-inner">
+        <div class="form-title">Sign up to get started</div>
+        <form method="post" class="form">
+            <label asp-for="Name"></label>
+            <input asp-for="Name">
+            <span asp-validation-for="Name"></span>
+
+            <label asp-for="Email"></label>
+            <input asp-for="Email">
+            <span asp-validation-for="Email"></span>
+
+            <label asp-for="Password"></label>
+            <input asp-for="Password">
+            <span asp-validation-for="Password"></span>
+
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword">
+            <span asp-validation-for="ConfirmPassword"></span>
+
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" placeholder="Optional">
+            <span asp-validation-for="Phone"></span>
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <section>
+                <button>submit</button>
+                <button type="reset">reset</button>
+            </section>
+        </form>
+    </div>
+</div>

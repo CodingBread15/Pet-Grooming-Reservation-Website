@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Service>
+
+@{
+    ViewBag.Title = "Grooming Services";
+}
+
+<div class="noncentered-container">
+    <h1 class="header-title">Grooming Packages</h1>
+    <div class="index-container">
+        <table class="index-table">
+            <tr>
+                <th class="index-id">Id</th>
+                <th>Name</th>
+                <th>Price(RM)</th>
+                <th class="grooming-service-description-th">Description</th>
+                <td class="index-button">
+                    <section>
+                        <button data-get="/Service/Insert">+</button>
+                    </section>
+                </td>
+            </tr>
+            @foreach (Service s in Model)
+            {
+                <tr>
+                    <td class="index-id">@s.Id</td>
+                    <td>@s.Name</td>
+                    <td>@s.Price</td>
+                    <td class="grooming-service-description-td">@s.Description</td>
+                    <td class="index-button">
+                        <section>
+                            <button data-get="/Service/Update?id=@s.Id">Edit</button>
+                            <button data-post="/Service/Delete?id=@s.Id" class="red-button">Delete</button>
+                        </section>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewBag.Title = "Members List";
+}
+
+<div class="noncentered-container">
+    <h1 class="header-title">Members List</h1>
+
+    <div>
+        <form class="filter-container" data-ajax="true" data-ajax-update="#target">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+            <button>Filter</button>
+        </form>
+    </div>
+
+    <div id="target" class="index-container">
+        <partial name="_MemberIndexData" />
+    </div>
+</div>

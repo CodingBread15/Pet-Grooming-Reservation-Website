@@ -1,0 +1,30 @@
+﻿@model ServiceVM
+
+@{
+    ViewBag.Title = "Editing: " + Model.Name;
+}
+
+<div class="container">
+    <div class="container-inner">
+        <div class="form-title">Editting: @Model.Name</div>
+        <form method="post" class="form" enctype="multipart/form-data">
+            <label asp-for="Name"></label>
+            <input asp-for="Name">
+            <span asp-validation-for="Name"></span>
+
+            <label asp-for="Price"></label>
+            <input asp-for="Price">
+            <span asp-validation-for="Price"></span>
+
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="note-box" rows="5" cols="27"></textarea>
+            <span asp-validation-for="Description"></span>
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <section>
+                <button>confirm</button>
+            </section>
+        </form>
+    </div>
+</div>

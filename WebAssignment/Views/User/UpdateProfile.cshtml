@@ -1,0 +1,33 @@
+﻿@model UpdateProfileVM
+
+@{
+    ViewBag.Title = "Edit Profile";
+}
+
+<div class="container">
+    <div class="container-inner">
+        <div class="form-title">Update your profile</div>
+        <form method="post" class="form" enctype="multipart/form-data">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" />
+            <span asp-validation-for="Phone"></span>
+
+            <label asp-for="Photo"></label>
+            <label class="upload">
+                <input asp-for="Photo" accept="image/jpeg, image/png" hidden>
+                <img src=/images/@(string.IsNullOrEmpty(Model.PhotoURL) ? "photo.jpg" : Model.PhotoURL)>
+            </label>
+            <span asp-validation-for="Photo"></span>
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <section>
+                <button>confirm</button>
+            </section>
+        </form>
+    </div>
+</div>
